@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: payhere
+    volumes:
+      - /c/Users/user/Documents/Workspace/MYWEB/mysql:/var/lib/mysql
+    networks:
+      - ph-cafe-network
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -proot123 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s  # MySQL이 초기화되는 시간을 기다림
+
+  app:
+    build: .
+    ports:
+      - "8085:8085"
+    environment:
+      PAYHERE_DB: root:root123@tcp(db:3306)/payhere
+    volumes:
+      - ./services/seeds:/app/services/seeds
+    depends_on:
+      db:
+        condition: service_healthy  # MySQL 컨테이너가 'healthy' 상태일 때만 실행
+    networks:
+      - ph-cafe-network
+
+networks:
+  ph-cafe-network:

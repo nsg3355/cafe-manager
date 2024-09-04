@@ -10,7 +10,8 @@ import (
 	"time"
 
 	"github.com/nsg3355/ph-cafe-manager/config"
-	route "github.com/nsg3355/ph-cafe-manager/services"
+	router "github.com/nsg3355/ph-cafe-manager/services"
+	seeds "github.com/nsg3355/ph-cafe-manager/services/seeds"
 
 	"github.com/spf13/cast"
 )
@@ -22,10 +23,11 @@ func main() {
 	// Step 2: DB 초기화
 	config.InitDB(config.GetInstance().PayhereDB)
 
-	// Database 초기화
+	// Step 3: 스키마/데이터 초기화
+	seeds.InitSQL()
 
-	// Step 3: API 서버 초기화
-	r := route.InitRouter()
+	// Step 4: API 서버 초기화
+	r := router.InitRouter()
 
 	srv := &http.Server{
 		Addr:    ":" + cast.ToString(config.GetInstance().ServicePort),
@@ -39,7 +41,7 @@ func main() {
 
 	log.Printf("Starting server... port : %v", config.GetInstance().ServicePort)
 
-	// Step 4: Graceful Shutdown
+	// Step 5: Graceful Shutdown
 	quit := make(chan os.Signal)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit
