@@ -85,6 +85,7 @@ services: 실제 비즈니스 로직이 들어있습니다. <br>
 # API 요청 예시
 
 **회원가입**
+```javascript
 POST | http://localhost:8085/cafe-mgr/api/v1/user/signup
 - body
 {
@@ -99,8 +100,10 @@ POST | http://localhost:8085/cafe-mgr/api/v1/user/signup
     },
     "data": null
 }
+```
 
 **로그인**
+```javascript
 POST | http://localhost:8085/cafe-mgr/api/v1/user/login
 - body
 {
@@ -115,8 +118,10 @@ POST | http://localhost:8085/cafe-mgr/api/v1/user/login
     },
     "data": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIwMTAyMzA1MTczOCIsImV4cCI6MTcyNTQ1NjgyMn0.WvZqmpKJKRMS2Y-JB4mLoramEEDlYRI8sw8GsQTSI5s"
 }
+```
 
 **로그아웃**
+```javascript
 POST | http://localhost:8085/cafe-mgr/api/v1/user/logout
 - body
 {
@@ -130,8 +135,10 @@ POST | http://localhost:8085/cafe-mgr/api/v1/user/logout
     },
     "data": null
 }
+```
 
 **상품목록**
+```javascript
 GET | http://localhost:8085/cafe-mgr/api/v1/product/list?product_id=2&keyword=ㅇㅁㄹㅇ
 - header
 Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIwMTAyMzA1MTczOCIsImV4cCI6MTcyNTQ1NjgyMn0.WvZqmpKJKRMS2Y-JB4mLoramEEDlYRI8sw8GsQTSI5s
@@ -156,7 +163,10 @@ keyword:ㅇㅁㄹㅇ
         ]
     }
 }
+```
+
 **상품상세**
+```javascript
 GET | http://localhost:8085/cafe-mgr/api/v1/product/byid?product_id=2
 - header
 Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIwMTAyMzA1MTczOCIsImV4cCI6MTcyNTQ1NjgyMn0.WvZqmpKJKRMS2Y-JB4mLoramEEDlYRI8sw8GsQTSI5s
@@ -183,8 +193,10 @@ product_id:2
         "updated_at": "2024-09-04 13:24:41"
     }
 }
+```
 
 **상품등록**
+```javascript
 POST | http://localhost:8085/cafe-mgr/api/v1/product/item
 - header
 Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIwMTAyMzA1MTczOCIsImV4cCI6MTcyNTQ1NjgyMn0.WvZqmpKJKRMS2Y-JB4mLoramEEDlYRI8sw8GsQTSI5s
@@ -208,8 +220,10 @@ Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOi
     },
     "data": null
 }
+```
 
 **상품수정**
+```javascript
 PUT | http://localhost:8085/cafe-mgr/api/v1/product/item
 - header
 Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIwMTAyMzA1MTczOCIsImV4cCI6MTcyNTQ1NjgyMn0.WvZqmpKJKRMS2Y-JB4mLoramEEDlYRI8sw8GsQTSI5s
@@ -233,6 +247,7 @@ Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOi
     },
     "data": 1
 }
+```
 
 **상품삭제**
 ```javascript
