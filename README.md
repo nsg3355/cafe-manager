@@ -80,3 +80,173 @@ services: 실제 비즈니스 로직이 들어있습니다. <br>
     => 회원가입 -> 로그인 -> 로그아웃 <br>
 4. product(상품관리)는 TestPostItem -> TestPutItem -> TestGetList -> TestGetByid -> TestDeleteItem 순서로 진행해 주세요. <br>
     => 상품등록 -> 상품수정 -> 상품목록 -> 상품상세 -> 상품삭제 <br>
+
+
+# API 요청 예시
+
+**회원가입**
+POST | http://localhost:8085/cafe-mgr/api/v1/user/signup
+- body
+{
+    "phone_number": "01023051738",
+    "password": "p@ssw0rd"
+}
+- response
+{
+    "meta": {
+        "code": 200,
+        "message": "ok"
+    },
+    "data": null
+}
+
+**로그인**
+POST | http://localhost:8085/cafe-mgr/api/v1/user/login
+- body
+{
+    "phone_number": "01023051738",
+    "password": "p@ssw0rd"
+}
+- response
+{
+    "meta": {
+        "code": 200,
+        "message": "ok"
+    },
+    "data": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIwMTAyMzA1MTczOCIsImV4cCI6MTcyNTQ1NjgyMn0.WvZqmpKJKRMS2Y-JB4mLoramEEDlYRI8sw8GsQTSI5s"
+}
+
+**로그아웃**
+POST | http://localhost:8085/cafe-mgr/api/v1/user/logout
+- body
+{
+    "user_id": "1"
+}
+- response
+{
+    "meta": {
+        "code": 200,
+        "message": "ok"
+    },
+    "data": null
+}
+
+**상품목록**
+GET | http://localhost:8085/cafe-mgr/api/v1/product/list?product_id=2&keyword=ㅇㅁㄹㅇ
+- header
+Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIwMTAyMzA1MTczOCIsImV4cCI6MTcyNTQ1NjgyMn0.WvZqmpKJKRMS2Y-JB4mLoramEEDlYRI8sw8GsQTSI5s
+- query param
+product_id:2
+keyword:ㅇㅁㄹㅇ
+- response
+{
+    "meta": {
+        "code": 200,
+        "message": "ok"
+    },
+    "data": {
+        "products": [
+            {
+                "id": 2,
+                "category": "라떼",
+                "price": "4500.00",
+                "name": "아메리카노",
+                "size": "small"
+            }
+        ]
+    }
+}
+**상품상세**
+GET | http://localhost:8085/cafe-mgr/api/v1/product/byid?product_id=2
+- header
+Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIwMTAyMzA1MTczOCIsImV4cCI6MTcyNTQ1NjgyMn0.WvZqmpKJKRMS2Y-JB4mLoramEEDlYRI8sw8GsQTSI5s
+- query param
+product_id:2
+- response
+{
+    "meta": {
+        "code": 200,
+        "message": "ok"
+    },
+    "data": {
+        "id": 2,
+        "user_id": "1",
+        "category": "라떼",
+        "price": "4500.00",
+        "cost": "450.50",
+        "name": "아메리카노",
+        "description": "스벅원두",
+        "barcode": "455444992",
+        "expiration_date": "2025-09-12",
+        "size": "small",
+        "created_at": "2024-09-04 13:24:41",
+        "updated_at": "2024-09-04 13:24:41"
+    }
+}
+
+**상품등록**
+POST | http://localhost:8085/cafe-mgr/api/v1/product/item
+- header
+Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIwMTAyMzA1MTczOCIsImV4cCI6MTcyNTQ1NjgyMn0.WvZqmpKJKRMS2Y-JB4mLoramEEDlYRI8sw8GsQTSI5s
+- body
+{
+    "user_id": 1,
+    "category": "라떼",
+    "price": "4500",
+    "cost": "450.50",
+    "name": "아메리카노",
+    "description": "스벅원두",
+    "barcode": "455444992",
+    "expiration_date": "2025-09-12",
+    "size": "small"
+}
+- response
+{
+    "meta": {
+        "code": 200,
+        "message": "ok"
+    },
+    "data": null
+}
+
+**상품수정**
+PUT | http://localhost:8085/cafe-mgr/api/v1/product/item
+- header
+Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIwMTAyMzA1MTczOCIsImV4cCI6MTcyNTQ1NjgyMn0.WvZqmpKJKRMS2Y-JB4mLoramEEDlYRI8sw8GsQTSI5s
+- body
+{
+    "product_id": 2,
+    "category": "라떼",
+    "price": "4600",
+    "cost": "460.50",
+    "name": "바닐라라떼",
+    "description": "서울우유",
+    "barcode": "444444991",
+    "expiration_date": "2025-09-30",
+    "size": "large"
+}
+- response
+{
+    "meta": {
+        "code": 200,
+        "message": "ok"
+    },
+    "data": 1
+}
+
+**상품삭제**
+DELETE | http://localhost:8085/cafe-mgr/api/v1/product/item
+- header
+Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIwMTAyMzA1MTczOCIsImV4cCI6MTcyNTQ1NjgyMn0.WvZqmpKJKRMS2Y-JB4mLoramEEDlYRI8sw8GsQTSI5s
+- body
+{
+    "product_id": 2
+}
+- response
+{
+    "meta": {
+        "code": 400,
+        "message": "token is expired or invalid"
+    },
+    "data": null
+}
