@@ -235,7 +235,7 @@ Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOi
 }
 
 **상품삭제**
-`
+```javascript
 DELETE | http://localhost:8085/cafe-mgr/api/v1/product/item
 - header
 Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIwMTAyMzA1MTczOCIsImV4cCI6MTcyNTQ1NjgyMn0.WvZqmpKJKRMS2Y-JB4mLoramEEDlYRI8sw8GsQTSI5s
@@ -251,4 +251,4 @@ Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOi
     },
     "data": null
 }
-`
+```
