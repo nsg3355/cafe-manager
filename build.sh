@@ -1,1 +1,1 @@
-docker build -t ph-cafe-manager .
+docker build -t cafe-manager .

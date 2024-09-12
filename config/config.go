@@ -11,8 +11,8 @@ import (
 // Config 기본 값 정의
 type Config struct {
 	ServicePort int    `json:"SERVICE_PORT" env:"SERVICE_PORT" envDefault:"8085"`
-	PayhereDB   string `json:"PAYHERE_DB" env:"PAYHERE_DB" envDefault:"root:root123@tcp(127.0.0.1:3306)/payhere"`
-	JwtKey      string `json:"JWT_KEY" env:"JWT_KEY" envDefault:"GOODPAYHERE"`
+	StarbucksDB string `json:"STARBUCKS_DB" env:"STARBUCKS_DB" envDefault:"root:root123@tcp(127.0.0.1:3306)/starbucks"`
+	JwtKey      string `json:"JWT_KEY" env:"JWT_KEY" envDefault:"GOODSTARBUCKS"`
 }
 
 var instance *Config

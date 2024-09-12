@@ -1,4 +1,4 @@
--- payhere.user_info definition
+-- starbucks.user_info definition
 
 CREATE TABLE IF NOT EXISTS `user_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '사용자 ID',

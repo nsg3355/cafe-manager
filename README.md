@@ -51,18 +51,18 @@ services: 실제 비즈니스 로직이 들어있습니다. <br>
 
 # 서비스 구동방법 (Window 11 환경에서 개발)
 0. [사전 준비사항]: git bash, docker 등 설치 완료된 상태 <br>
-1. 적당한 디렉토리를 만들고 코드를 받아주세요. (ph-cafe-manager) <br>
-    => git clone https://github.com/nsg3355/ph-cafe-manager.git <br>
+1. 적당한 디렉토리를 만들고 코드를 받아주세요. (cafe-manager) <br>
+    => git clone https://github.com/nsg3355/cafe-manager.git <br>
 2. 프로젝트 디렉토리로 이동하세요. <br>
-    => cd ph-cafe-manager <br>
+    => cd cafe-manager <br>
 3. build.sh 파일을 실행시켜 주세요. (docker build) <br>
     => docker images 명령어로 이미지 생성된 것을 확인 <br>
 4. docker-compose.yml 파일을 실행시켜 주세요. (docker-compose) <br>
     => docker-compose up <br>
 
 # 개발서버 실행 방법
-1. 적당한 디렉토리를 만들고 코드를 받아주세요. (ph-cafe-manager) <br>
-    => git clone https://github.com/nsg3355/ph-cafe-manager.git <br>
+1. 적당한 디렉토리를 만들고 코드를 받아주세요. (cafe-manager) <br>
+    => git clone https://github.com/nsg3355/cafe-manager.git <br>
 2. go module을 설치하세요. <br>
     => go mod tidy <br>
     => go mod vendor <br>
@@ -72,9 +72,9 @@ services: 실제 비즈니스 로직이 들어있습니다. <br>
 4. VScode에서 F5로 디버깅 모드로 코드를 실행하세요. <br>
 
 
-# 테스트 방법 (개발: payhere, 테스트: payhere_test)
+# 테스트 방법 (개발: starbucks, 테스트: starbucks_test)
 1. 테스트를 위해서 테스트용 DB를 구성하세요. <br>
-    => init.go에 있는 "CREATE DATABASE payhere_test;" 쿼리를 DB툴에서 실행 (DBeaver) <br>
+    => init.go에 있는 "CREATE DATABASE starbucks_test;" 쿼리를 DB툴에서 실행 (DBeaver) <br>
     => services/seeds/ddl 폴더 아래 테이블 생성쿼리 3건을 실행해 주세요. <br>
 3. user(사용자관리)는 TestPostSignup -> TestPostLogin -> TestPostLogout 순서로 진행해 주세요. <br>
     => 회원가입 -> 로그인 -> 로그아웃 <br>

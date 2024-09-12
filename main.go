@@ -9,9 +9,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/nsg3355/ph-cafe-manager/config"
-	router "github.com/nsg3355/ph-cafe-manager/services"
-	seeds "github.com/nsg3355/ph-cafe-manager/services/seeds"
+	"github.com/nsg3355/cafe-manager/config"
+	router "github.com/nsg3355/cafe-manager/services"
+	seeds "github.com/nsg3355/cafe-manager/services/seeds"
 
 	"github.com/spf13/cast"
 )
@@ -21,7 +21,7 @@ func main() {
 	config.GetInstance().LoadConfig()
 
 	// Step 2: DB 초기화
-	config.InitDB(config.GetInstance().PayhereDB)
+	config.InitDB(config.GetInstance().StarbucksDB)
 
 	// Step 3: 스키마/데이터 초기화
 	seeds.InitSQL()

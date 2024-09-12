@@ -3,7 +3,7 @@ package product
 import (
 	"strings"
 
-	"github.com/nsg3355/ph-cafe-manager/common"
+	"github.com/nsg3355/cafe-manager/common"
 )
 
 var selProductList = `

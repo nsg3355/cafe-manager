@@ -4,11 +4,11 @@ services:
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: payhere
+      MYSQL_DATABASE: starbucks
     volumes:
       - /c/Users/user/Documents/Workspace/MYWEB/mysql:/var/lib/mysql
     networks:
-      - ph-cafe-network
+      - cafe-network
     healthcheck:
       test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -proot123 || exit 1"]
       interval: 10s
@@ -21,14 +21,14 @@ services:
     ports:
       - "8085:8085"
     environment:
-      PAYHERE_DB: root:root123@tcp(db:3306)/payhere
+      STARBUCKS_DB: root:root123@tcp(db:3306)/starbucks
     volumes:
       - ./services/seeds:/app/services/seeds
     depends_on:
       db:
         condition: service_healthy  # MySQL 컨테이너가 'healthy' 상태일 때만 실행
     networks:
-      - ph-cafe-network
+      - cafe-network
 
 networks:
-  ph-cafe-network:
+  cafe-network:

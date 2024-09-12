@@ -1,4 +1,4 @@
--- payhere.product_info definition
+-- starbucks.product_info definition
 
 CREATE TABLE IF NOT EXISTS `product_info` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '상품 ID',

@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/nsg3355/ph-cafe-manager/common"
-	"github.com/nsg3355/ph-cafe-manager/config"
+	"github.com/nsg3355/cafe-manager/common"
+	"github.com/nsg3355/cafe-manager/config"
 )
 
 func postSignup(c *gin.Context) common.Result {

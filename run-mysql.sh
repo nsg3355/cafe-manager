@@ -1,13 +1,13 @@
 echo "Container delete"
 
-docker rm -f payhere-mysql
+docker rm -f starbucks-mysql
 
 echo "Run mysql..."
 
-docker run --name payhere-mysql \
+docker run --name starbucks-mysql \
         -p 3306:3306 \
         -e MYSQL_ROOT_PASSWORD=root123 \
-        -e MYSQL_DATABASE=payhere \
+        -e MYSQL_DATABASE=starbucks \
         -e MYSQL_USER=user \
         -e MYSQL_PASSWORD=pass \
         -e TZ=Asia/Seoul \ 

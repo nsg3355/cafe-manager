@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/nsg3355/ph-cafe-manager/config"
+	"github.com/nsg3355/cafe-manager/config"
 )
 
 // DB 초기화

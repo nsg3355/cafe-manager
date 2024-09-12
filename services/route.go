@@ -2,8 +2,8 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/nsg3355/ph-cafe-manager/services/api/v1/product"
-	"github.com/nsg3355/ph-cafe-manager/services/api/v1/user"
+	"github.com/nsg3355/cafe-manager/services/api/v1/product"
+	"github.com/nsg3355/cafe-manager/services/api/v1/user"
 )
 
 // 메인 라우터

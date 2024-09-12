@@ -1,4 +1,4 @@
--- payhere.access_control definition
+-- starbucks.access_control definition
 
 CREATE TABLE IF NOT EXISTS `access_control` (
   `user_id` int(11) NOT NULL COMMENT '사용자 ID',

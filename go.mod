@@ -1,4 +1,4 @@
-module github.com/nsg3355/ph-cafe-manager
+module github.com/nsg3355/cafe-manager
 
 go 1.20
 

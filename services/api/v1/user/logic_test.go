@@ -9,9 +9,9 @@ import (
 	"testing"
 
 	"github.com/gin-gonic/gin"
-	"github.com/nsg3355/ph-cafe-manager/common"
-	"github.com/nsg3355/ph-cafe-manager/config"
-	"github.com/nsg3355/ph-cafe-manager/services/api/v1/user"
+	"github.com/nsg3355/cafe-manager/common"
+	"github.com/nsg3355/cafe-manager/config"
+	"github.com/nsg3355/cafe-manager/services/api/v1/user"
 	"github.com/stretchr/testify/assert"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -26,7 +26,7 @@ func SetupRouter() *gin.Engine {
 // 테스트 DB 초기화
 func initTestDB(t *testing.T) {
 	// 테스트 환경에 맞는 DSN으로 초기화 (Test DB 설정)
-	dsn := "root:root123@tcp(127.0.0.1:3306)/payhere_test?charset=utf8mb4&parseTime=True&loc=Asia%2FSeoul"
+	dsn := "root:root123@tcp(127.0.0.1:3306)/starbucks_test?charset=utf8mb4&parseTime=True&loc=Asia%2FSeoul"
 	var err error
 	config.GlobalDB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {

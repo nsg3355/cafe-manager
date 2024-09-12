@@ -6,7 +6,7 @@ import (
 	"unicode"
 
 	"github.com/golang-jwt/jwt/v4"
-	"github.com/nsg3355/ph-cafe-manager/config"
+	"github.com/nsg3355/cafe-manager/config"
 	"golang.org/x/crypto/bcrypt"
 )
 
